@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-// COMPONENTS
-import HeaderClass from './components/header';
-const App = () =>
-{
-    return (
-        <div>
-            <HeaderClass />
-        </div>
+import JSON from './db.json';
 
-    )
+// COMPONENTS
+import Header from './components/header';
+import NewsList from './components/news_list';
+class App extends Component
+{
+    state = {
+        news: JSON
+    }
+    render ()
+    {
+        console.log( this.state.news )
+
+        return (
+            <div>
+                <Header />
+                <NewsList news={ this.state.news } >
+                    Hello Dudes
+                </NewsList>
+            </div>
+
+        )
+    }
+
 }
 
 
